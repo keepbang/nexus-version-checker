@@ -1,0 +1,40 @@
+name: Nexus library version checker
+description: 'Nexus maven library version check'
+author: keepbang
+runs:
+  using: "composite"
+  steps:
+    - id: item_finder
+      shell: bash
+      run: |
+        chmod +x ${{ github.action_path }}/action.sh
+        ${{ github.action_path }}/action.sh
+inputs:
+  REPOSITORY:
+    description: 'Nexus repository'
+    required: true
+  FORMAT:
+    description: 'Nexus save format'
+    required: true
+  GROUP:
+    description: 'Maven groupId'
+    required: true
+  NAME:
+    description: 'Library name'
+    required: true
+  VERSION:
+    description: 'Library search version'
+    required: true
+  NEXUS_HOST:
+    description: 'Nexus host url [http(or https)://{hostname}:{port}]'
+    required: true
+  AUTH_BASE64:
+    description: 'Encoded username:password'
+    required: true
+outputs:
+  is_component:
+    value: ${{ steps.item_finder.outputs.is_component }}
+    description: 'Last library version'
+branding:
+  icon: 'chevrons-up'
+  color: 'purple'
