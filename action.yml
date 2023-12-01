@@ -34,7 +34,7 @@ inputs:
 outputs:
   is_component:
     value: ${{ steps.item_finder.outputs.is_component }}
-    description: 'Last library version'
+    description: 'library exists'
 branding:
   icon: 'chevrons-up'
   color: 'purple'
