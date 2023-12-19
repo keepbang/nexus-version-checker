@@ -26,9 +26,9 @@ version=$(echo "$response" | jq '.items[0].version')
 
 echo "$version"
 
-if [ "${version}" == "$version" ]
+if [ "$version" == "null" ] || [ "$version" == null ]
 then
-  setOutput "is_component" "true"
+  setOutput "is_component" "false"
 fi
 
-setOutput "is_component" "false"
+setOutput "is_component" "true"
