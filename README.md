@@ -41,4 +41,9 @@
           NEXUS_HOST: ${{ secrets.NEXUS_URL }}
           AUTH_BASE64: ${{ secrets.NEXUS_AUTH }}
 
+      - name: Nexus publish
+            if: ${{ steps.checker.outputs.is_component == 'false' }}
+            run:
+                  ./gradlew employee-library:publish ...
+
 ```
