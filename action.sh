@@ -29,7 +29,6 @@ echo "$version"
 if [ "$version" == "null" ] || [ "$version" == null ]
 then
   setOutput "is_component" "false"
-  exit 1
+else
+  setOutput "is_component" "true"
 fi
-
-setOutput "is_component" "true"
